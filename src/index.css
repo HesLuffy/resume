@@ -2,11 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "DM Sans", sans-serif;
+:root {
+  font-size: 62.5%;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+@layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+  body {
+    @apply font-dm text-black1;
+  }
+
+  h2 {
+    @apply text-[2rem];
+  }
+
+  p {
+    @apply text-[1.6rem];
+  }
+
+  a {
+    @apply no-underline text-inherit;
+  }
+}
+
+.nameSvg g path {
+  stroke-dashoffset: 4650px;
+  stroke-dasharray: 4650px;
+  animation: name 5s forwards;
+}
+
+@keyframes name {
+  0% {
+    stroke-dashoffset: 4650px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+.introductionWrapper {
+  background-image: linear-gradient(97deg, #5300dd, #6a60be, #63989d, #1ece75);
+  background-size: 500% 500%; /* 背景大小 */
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
