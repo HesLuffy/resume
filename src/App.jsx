@@ -9,12 +9,15 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+import ShotSHotImg from 'assets/images/shot-shot.png';
+
 
 function App() {
 
   const introWrapper = useRef(null);
   const whoAmI = useRef(null);
   const introText = useRef(null);
+  const circleMask = useRef(null);
 
   useEffect(() => {
 
@@ -34,10 +37,16 @@ function App() {
       opacity: 1,
     })
     tl.to(whoAmI.current, {
-      y: -200
+      y: 0
     })
     tl.to(introText.current, {
       opacity: 1
+    })
+    tl.to(circleMask.current, {
+      opacity: 1,
+      width: "50vw",
+      height: '50vh',
+      border: '3px solid #b9a5a5'
     })
   }, [])
 
@@ -63,13 +72,19 @@ function App() {
             </svg>
           </div>
 
-          <div ref={whoAmI} className='flex flex-col justify-center items-center fixed top-0 left-0 right-0 bottom-0 opacity-0'>
+          <div ref={whoAmI} className='flex flex-col translate-y-[20rem] justify-center items-center fixed top-0 left-0 right-0 bottom-0 opacity-0'>
             <h2 className='text-[3rem] text-[#000]'>Frontend Developer</h2>
-            <p ref={introText} className='opacity-0 mt-[2rem] w-[50vw] text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero at, est, facere numquam sit laborum blanditiis repellat totam harum ea commodi beatae quam animi ipsum. Et ullam cum numquam dolorum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero at, est, facere numquam sit laborum blanditiis repellat totam harum ea commodi beatae quam animi ipsum. Et ullam cum numquam dolorum.</p>
+            <p ref={introText} className='origin-center opacity-0 mt-[2rem] w-[50vw] text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero at, est, facere numquam sit laborum blanditiis repellat totam harum ea commodi beatae quam animi ipsum. Et ullam cum numquam dolorum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero at, est, facere numquam sit laborum blanditiis repellat totam harum ea commodi beatae quam animi ipsum. Et ullam cum numquam dolorum.</p>
+          </div>
+
+          <div ref={circleMask} className='flex justify-center items-center fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[200vw] h-[200vh] bg-white opacity-0 rounded-full'>
+            <img className='w-[80%] h-[80%]' src={ShotSHotImg} alt="" />
           </div>
         </section>
 
-        <section className='h-[200vh]'></section>
+        <section className='h-[600vh]'>
+
+        </section>
       </main>
       
     </>
